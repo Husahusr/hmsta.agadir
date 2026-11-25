@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HMSTA Rénovation &amp; Finition — Devis / عرض ثمن (Agadir)</title>
+  <style>
+    :root {
+      --bg-dark: #09090b;
+      --bg-card: #121216;
+      --bg-soft: #18181f;
+      --gold: #d4af37;
+      --gold-light: #f3d678;
+      --gold-dark: #9a7416;
+      --text-main: #f4f4f6;
+      --text-muted: #a1a1aa;
+      --paper-bg: #ffffff;
+      --paper-text: #18181b;
+      --paper-muted: #52525b;
+      --border: #e4e4e7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.55;
+      padding-bottom: 48px;
+    }
+
+    body.rtl {
+      direction: rtl;
+      text-align: right;
+    }
+
+    body.rtl .meta-box {
+      text-align: left;
+    }
+
+    body.rtl .meta-row {
+      justify-content: flex-start;
+    }
+
+    body.rtl th, body.rtl td.num {
+      text-align: left;
+    }
+
+    body.rtl .sheet-footer > div:last-child {
+      text-align: left;
+    }
+
+    .topbar {
+      background: linear-gradient(90deg, #09090b 0%, #17140b 50%, #09090b 100%);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+      padding: 12px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 30;
+    }
+
+    .brand-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-bar img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: #000;
+      border: 1px solid rgba(212, 175, 55, 0.5);
+    }
+
+    .brand-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--gold-light);
+      letter-spacing: 0.4px;
+    }
+
+    .brand-sub {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--bg-soft);
+    }
+
+    .lang-btn {
+      border: none;
+      border-radius: 0;
+      padding: 7px 12px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      background: transparent;
+      color: var(--text-muted);
+    }
+
+    .lang-btn.active {
+      background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+      color: #09090b;
+    }
+
+    button, .btn {
+      background: var(--bg-soft);
+      color: var(--text-main);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    button:hover {
+      border-color: var(--gold);
+      background: rgba(212, 175, 55, 0.14);
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+      color: #09090b;
+      border: none;
+    }
+
+    .btn-gold:hover {
+      filter: brightness(1.07);
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 24px auto 0;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    @media (max-width: 980px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .devis-sheet {
+      background: var(--paper-bg);
+      color: var(--paper-text);
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+    }
+
+    .sheet-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-box img {
+      width: 82px;
+      height: 82px;
+      object-fit: contain;
+      border-radius: 10px;
+      background: #09090b;
+      padding: 4px;
+      border: 1px solid var(--gold);
+    }
+
+    .company-info h1 {
+      font-size: 1.25rem;
+      color: #111827;
+      font-weight: 800;
+    }
+
+    .company-info p, .meta-box p {
+      font-size: 0.85rem;
+      color: var(--paper-muted);
+    }
+
+    .meta-box {
+      text-align: right;
+      min-width: 230px;
+    }
+
+    .meta-box h2 {
+      font-size: 1.45rem;
+      letter-spacing: 0.5px;
+      color: var(--gold-dark);
+      margin-bottom: 6px;
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+      font-size: 0.84rem;
+    }
+
+    .meta-row input, .meta-row select {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 0.84rem;
+      color: var(--paper-text);
+      background: #fafafa;
+    }
+
+    .parties {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 22px 0;
+    }
+
+    @media (max-width: 650px) {
+      .parties {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .party-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      background: #fafafa;
+    }
+
+    .party-card h3 {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--gold-dark);
+      margin-bottom: 8px;
+    }
+
+    .editable-input, .editable-area {
+      width: 100%;
+      border: 1px solid transparent;
+      background: transparent;
+      font-family: inherit;
+      color: var(--paper-text);
+      padding: 3px 6px;
+      border-radius: 5px;
+      margin-bottom: 4px;
+    }
+
+    .editable-input:hover, .editable-input:focus,
+    .editable-area:hover, .editable-area:focus {
+      border-color: #d4d4d8;
+      background: #ffffff;
+      outline: none;
+    }
+
+    .party-title {
+      font-weight: 700;
+      font-size: 0.96rem;
+    }
+
+    .catalog-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 14px 0 18px;
+    }
+
+    .catalog-btn {
+      background: #fef9e7;
+      color: #7c5808;
+      border: 1px solid #e6c86e;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .catalog-btn:hover {
+      background: var(--gold);
+      color: #09090b;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 0.88rem;
+    }
+
+    th {
+      background: #18181b;
+      color: var(--gold-light);
+      padding: 10px 8px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    th.num, td.num {
+      text-align: right;
+    }
+
+    td {
+      border-bottom: 1px solid var(--border);
+      padding: 8px;
+      vertical-align: middle;
+    }
+
+    td input {
+      width: 100%;
+      border: 1px solid transparent;
+      background: transparent;
+      padding: 4px 6px;
+      border-radius: 4px;
+      font-size: 0.86rem;
+      color: var(--paper-text);
+      font-family: inherit;
+    }
+
+    td input:focus {
+      border-color: var(--gold);
+      background: #fffbeb;
+      outline: none;
+    }
+
+    td.num input {
+      text-align: right;
+    }
+
+    body.rtl td.num input {
+      text-align: left;
+    }
+
+    .del-btn {
+      background: #fee2e2;
+      color: #991b1b;
+      border: none;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 0.76rem;
+    }
+
+    .summary-area {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 24px;
+      margin-top: 22px;
+      align-items: start;
+    }
+
+    @media (max-width: 720px) {
+      .summary-area {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .letters-box {
+      background: #fafafa;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 0.85rem;
+    }
+
+    body.rtl .letters-box {
+      border-left: 1px solid var(--border);
+      border-right: 4px solid var(--gold);
+    }
+
+    .letters-box strong {
+      display: block;
+      color: var(--gold-dark);
+      margin-bottom: 4px;
+    }
+
+    .totals-table {
+      width: 100%;
+      margin-top: 0;
+    }
+
+    .totals-table td {
+      padding: 6px 8px;
+      border-bottom: 1px solid #f4f4f5;
+    }
+
+    .total-ttc td {
+      font-weight: 800;
+      font-size: 1rem;
+      color: #111827;
+      border-top: 2px solid var(--gold);
+      border-bottom: 2px solid var(--gold);
+      background: #fffbeb;
+    }
+
+    .sheet-footer {
+      margin-top: 28px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.78rem;
+      color: var(--paper-muted);
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .panel {
+      background: var(--bg-card);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .panel h3 {
+      font-size: 0.95rem;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+    }
+
+    .field {
+      margin-bottom: 12px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .field input, .field select {
+      width: 100%;
+      background: var(--bg-soft);
+      color: var(--text-main);
+      border: 1px solid #2e2e38;
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 0.86rem;
+      font-family: inherit;
+    }
+
+    .history-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-height: 240px;
+      overflow-y: auto;
+    }
+
+    .history-item {
+      background: var(--bg-soft);
+      border: 1px solid #27272a;
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .history-item button {
+      padding: 4px 8px;
+      font-size: 0.75rem;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+      }
+      .topbar, .sidebar, .catalog-bar, .no-print, .del-btn {
+        display: none !important;
+      }
+      .container {
+        display: block;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .devis-sheet {
+        box-shadow: none;
+        border-radius: 0;
+        padding: 12px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-bar">
+      <img src="logo-hmsta.jpg" alt="Logo HMSTA Rénovation & Finition" onerror="this.style.display='none'" />
+      <div>
+        <div class="brand-title" id="topBrandTitle">HMSTA Rénovation &amp; Finition</div>
+        <div class="brand-sub" id="topBrandSub">Devis BTP &amp; Finition — Agadir, Maroc</div>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="lang-switch" aria-label="Language switcher">
+        <button class="lang-btn active" id="btnLangFr" onclick="setLang('fr')">FR</button>
+        <button class="lang-btn" id="btnLangAr" onclick="setLang('ar')">العربية</button>
+      </div>
+      <button id="btnNew" onclick="newDevis()">Nouveau</button>
+      <button id="btnSave" onclick="saveDevis()">Enregistrer</button>
+      <button id="btnWhatsApp" onclick="copyWhatsApp()">Copier WhatsApp</button>
+      <button class="btn-gold" id="btnPrint" onclick="window.print()">Imprimer / PDF</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="devis-sheet" id="devisSheet">
+      <div class="sheet-header">
+        <div class="logo-box">
+          <img src="logo-hmsta.jpg" alt="Logo HMSTA" onerror="this.style.display='none'" />
+          <div class="company-info">
+            <h1 id="sheetCompanyName">HMSTA Rénovation &amp; Finition</h1>
+            <p id="companyAddress">Quartier Hay Mohammadi, Agadir, Maroc</p>
+            <p><span id="lblTelPrefix">Tél</span> : <span id="companyPhone">06 61 79 42 65</span> • <span id="lblEmailPrefix">Email</span> : <span id="companyEmail">zouhairhmsta@gmail.com</span></p>
+            <p id="companyLegal">ICE : — • RC : — • IF : — • Patente : —</p>
+          </div>
+        </div>
+        <div class="meta-box">
+          <h2 id="docTitle">DEVIS</h2>
+          <div class="meta-row">
+            <span id="lblNum">N° :</span>
+            <input type="text" id="devisNumber" value="DEV-2026-001" style="width:130px; font-weight:700;" />
+          </div>
+          <div class="meta-row">
+            <span id="lblDate">Date :</span>
+            <input type="date" id="devisDate" onchange="recalcValidity()" />
+            <button class="no-print" id="btnToday" style="padding:3px 7px; font-size:0.74rem;" onclick="setToday()">Aujourd'hui</button>
+          </div>
+          <div class="meta-row">
+            <span id="lblValidity">Validité :</span>
+            <input type="date" id="devisValidity" />
+          </div>
+        </div>
+      </div>
+
+      <div class="parties">
+        <div class="party-card">
+          <h3 id="lblClientCard">Client</h3>
+          <input type="text" class="editable-input party-title" id="clientName" value="Client Particulier / Société" />
+          <input type="text" class="editable-input" id="clientAddress" value="Avenue Hassan II, Talborjt, Agadir" />
+          <input type="text" class="editable-input" id="clientPhone" value="Tél : 06 XX XX XX XX" />
+        </div>
+        <div class="party-card">
+          <h3 id="lblProjectCard">Objet &amp; Chantier</h3>
+          <input type="text" class="editable-input party-title" id="projectTitle" value="Rénovation & Finition — Quartier Founty, Agadir" />
+          <textarea class="editable-area" id="projectNotes" rows="2">Travaux complets de rénovation et finition selon descriptif ci-dessous.</textarea>
+        </div>
+      </div>
+
+      <div class="catalog-bar" id="catalogBar"></div>
+
+      <table>
+        <thead>
+          <tr>
+            <th id="thDesc" style="width:42%;">Désignation des travaux</th>
+            <th id="thUnit" style="width:12%;">Unité</th>
+            <th class="num" id="thQty" style="width:12%;">Qté</th>
+            <th class="num" id="thPrice" style="width:16%;">P.U. HT (DH)</th>
+            <th class="num" id="thTotal" style="width:14%;">Total HT</th>
+            <th class="no-print" style="width:4%;"></th>
+          </tr>
+        </thead>
+        <tbody id="itemsBody"></tbody>
+      </table>
+
+      <div class="no-print" style="margin-top:10px;">
+        <button class="btn-gold" id="btnAddRow" onclick="addItem()">+ Ajouter une ligne</button>
+      </div>
+
+      <div class="summary-area">
+        <div class="letters-box">
+          <strong id="lblAmountLetters">Arrêté le présent devis à la somme de :</strong>
+          <span id="amountInLetters">Zéro Dirham</span>
+        </div>
+
+        <table class="totals-table">
+          <tr>
+            <td id="lblTotalHT">Total Hors Taxes (HT)</td>
+            <td class="num" id="totalHT">0,00 DH</td>
+          </tr>
+          <tr>
+            <td><span id="lblDiscount">Remise</span> (<span id="discountLabel">0%</span>)</td>
+            <td class="num" id="discountAmount">-0,00 DH</td>
+          </tr>
+          <tr>
+            <td id="lblNetHT">Net Commercial HT</td>
+            <td class="num" id="netHT">0,00 DH</td>
+          </tr>
+          <tr>
+            <td><span id="lblTVA">TVA</span> (<span id="tvaLabel">20%</span>)</td>
+            <td class="num" id="tvaAmount">0,00 DH</td>
+          </tr>
+          <tr class="total-ttc">
+            <td id="lblTotalTTC">Total TTC</td>
+            <td class="num" id="totalTTC">0,00 DH</td>
+          </tr>
+          <tr>
+            <td><span id="lblAcompte">Acompte</span> (<span id="acompteLabel">40%</span>)</td>
+            <td class="num" id="acompteAmount">0,00 DH</td>
+          </tr>
+          <tr>
+            <td><strong id="lblReste">Reste à payer</strong></td>
+            <td class="num"><strong id="resteAmount">0,00 DH</strong></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="sheet-footer">
+        <div>
+          <strong id="footerCompany">HMSTA Rénovation &amp; Finition — Agadir</strong><br/>
+          <span id="lblFooterTel">Tél</span> : <span id="footerPhone">06 61 79 42 65</span> • <span id="lblFooterEmail">Email</span> : <span id="footerEmail">zouhairhmsta@gmail.com</span>
+        </div>
+        <div style="text-align:right;">
+          <span id="lblStamp">Cachet &amp; Signature HMSTA</span><br/>
+          <em id="lblClientSign">Bon pour accord (Client) : ___________________</em>
+        </div>
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <div class="panel">
+        <h3 id="panelCalcTitle">Paramètres de calcul</h3>
+        <div class="field">
+          <label id="lblCfgTVA">Taux TVA</label>
+          <select id="tvaRate" onchange="recalc()">
+            <option value="20" selected id="optTva20">20% (Standard)</option>
+            <option value="10" id="optTva10">10% (Travaux / spécifique)</option>
+            <option value="0" id="optTva0">0% (Exonéré)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label id="lblCfgDiscount">Remise (%)</label>
+          <input type="number" id="discountRate" min="0" max="100" step="0.5" value="0" oninput="recalc()" />
+        </div>
+        <div class="field">
+          <label id="lblCfgAcompte">Acompte à la commande (%)</label>
+          <input type="number" id="acompteRate" min="0" max="100" step="5" value="40" oninput="recalc()" />
+        </div>
+        <div class="field">
+          <label id="lblCfgValidity">Durée de validité (jours)</label>
+          <select id="validityDays" onchange="recalcValidity()">
+            <option value="15" selected id="optVal15">15 jours</option>
+            <option value="30" id="optVal30">30 jours</option>
+            <option value="45" id="optVal45">45 jours</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3 id="panelCompanyTitle">Infos Société (HMSTA)</h3>
+        <div class="field">
+          <label id="lblCfgAddr">Adresse (Agadir)</label>
+          <input type="text" id="cfgAddress" value="Quartier Hay Mohammadi, Agadir, Maroc" oninput="applyCompanyCfg()" />
+        </div>
+        <div class="field">
+          <label id="lblCfgPhone">Téléphone</label>
+          <input type="text" id="cfgPhone" value="06 61 79 42 65" oninput="applyCompanyCfg()" />
+        </div>
+        <div class="field">
+          <label id="lblCfgEmail">Email</label>
+          <input type="text" id="cfgEmail" value="zouhairhmsta@gmail.com" oninput="applyCompanyCfg()" />
+        </div>
+        <div class="field">
+          <label id="lblCfgIce">ICE</label>
+          <input type="text" id="cfgIce" placeholder="Ex: 003XXXXXXXXXXXX" oninput="applyCompanyCfg()" />
+        </div>
+        <div class="field">
+          <label id="lblCfgExtra">RC / IF / Patente</label>
+          <input type="text" id="cfgLegalExtra" placeholder="Ex: RC 12345 • IF 987654 • Patente 456789" oninput="applyCompanyCfg()" />
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3 id="panelHistoryTitle">Historique local</h3>
+        <div class="history-list" id="historyList"></div>
+      </div>
+    </aside>
+  </main>
+
+  <script>
+    const STORAGE_KEY_CFG = "hmsta_agadir_cfg_v2";
+    const STORAGE_KEY_HIST = "hmsta_agadir_hist_v2";
+    const STORAGE_KEY_LANG = "hmsta_agadir_lang_v2";
+
+    let currentLang = "fr";
+
+    const I18N = {
+      fr: {
+        brandTitle: "HMSTA Rénovation & Finition",
+        brandSub: "Devis BTP & Finition — Agadir, Maroc",
+        companyName: "HMSTA Rénovation & Finition",
+        footerCompany: "HMSTA Rénovation & Finition — Agadir",
+        newBtn: "Nouveau",
+        saveBtn: "Enregistrer",
+        waBtn: "Copier WhatsApp",
+        printBtn: "Imprimer / PDF",
+        docTitle: "DEVIS",
+        num: "N° :",
+        date: "Date :",
+        today: "Aujourd'hui",
+        validity: "Validité :",
+        clientCard: "Client",
+        projectCard: "Objet & Chantier",
+        thDesc: "Désignation des travaux",
+        thUnit: "Unité",
+        thQty: "Qté",
+        thPrice: "P.U. HT (DH)",
+        thTotal: "Total HT",
+        addRow: "+ Ajouter une ligne",
+        amountLetters: "Arrêté le présent devis à la somme de :",
+        totalHT: "Total Hors Taxes (HT)",
+        discount: "Remise",
+        netHT: "Net Commercial HT",
+        tva: "TVA",
+        totalTTC: "Total TTC",
+        acompte: "Acompte",
+        reste: "Reste à payer",
+        telPrefix: "Tél",
+        emailPrefix: "Email",
+        stamp: "Cachet & Signature HMSTA",
+        clientSign: "Bon pour accord (Client) : ___________________",
+        panelCalc: "Paramètres de calcul",
+        cfgTVA: "Taux TVA",
+        optTva20: "20% (Standard)",
+        optTva10: "10% (Travaux / spécifique)",
+        optTva0: "0% (Exonéré)",
+        cfgDiscount: "Remise (%)",
+        cfgAcompte: "Acompte à la commande (%)",
+        cfgValidity: "Durée de validité (jours)",
+        optVal15: "15 jours",
+        optVal30: "30 jours",
+        optVal45: "45 jours",
+        panelCompany: "Infos Société (HMSTA)",
+        cfgAddr: "Adresse (Agadir)",
+        cfgPhone: "Téléphone",
+        cfgEmail: "Email",
+        cfgIce: "ICE",
+        cfgExtra: "RC / IF / Patente",
+        panelHistory: "Historique local",
+        emptyHistory: "Aucun devis enregistré.",
+        openBtn: "Ouvrir",
+        savedAlert: "Devis enregistré dans l'historique local.",
+        waCopied: "Résumé copié pour WhatsApp !",
+        defaultAddr: "Quartier Hay Mohammadi, Agadir, Maroc",
+        defaultClient: "Client Particulier / Société",
+        defaultClientAddr: "Avenue Hassan II, Talborjt, Agadir",
+        defaultClientPhone: "Tél : 06 XX XX XX XX",
+        defaultProject: "Rénovation & Finition — Quartier Founty, Agadir",
+        defaultNotes: "Travaux complets de rénovation et finition selon descriptif ci-dessous.",
+        newLineDesc: "Nouvelle prestation de rénovation / finition",
+        defaultUnit: "Forfait",
+        presets: [
+          { label: "+ Démolition", desc: "Démolition & évacuation gravats", unit: "Forfait", qty: 1, price: 2500 },
+          { label: "+ Faux plafond BA13", desc: "Faux plafond BA13 standard / hydrofuge", unit: "m²", qty: 1, price: 160 },
+          { label: "+ Carrelage / Faïence", desc: "Pose carrelage sol & faïence murale (fourniture & pose)", unit: "m²", qty: 1, price: 220 },
+          { label: "+ Peinture", desc: "Peinture intérieure satinée / vinylique (2 couches + enduit)", unit: "m²", qty: 1, price: 65 },
+          { label: "+ Plomberie", desc: "Travaux plomberie sanitaire & alimentation", unit: "Forfait", qty: 1, price: 4500 },
+          { label: "+ Électricité", desc: "Installation électrique & éclairage LED", unit: "Forfait", qty: 1, price: 4000 },
+          { label: "+ Étanchéité", desc: "Travaux d'étanchéité terrasse / salle d'eau", unit: "m²", qty: 1, price: 140 },
+          { label: "+ Menuiserie", desc: "Menuiserie bois / aluminium", unit: "Forfait", qty: 1, price: 5500 }
+        ],
+        sampleItems: [
+          { desc: "Peinture intérieure satinée (2 couches + préparation)", unit: "m²", qty: 80, price: 65 },
+          { desc: "Pose carrelage sol grès cérame", unit: "m²", qty: 45, price: 210 }
+        ]
+      },
+      ar: {
+        brandTitle: "HMSTA للإصلاح والتشطيب (Rénovation & Finition)",
+        brandSub: "عروض أثمنة الأشغال والتشطيب — أكادير، المغرب",
+        companyName: "HMSTA للإصلاح والتشطيب — Rénovation & Finition",
+        footerCompany: "HMSTA للإصلاح والتشطيب — أكادير",
+        newBtn: "جديد",
+        saveBtn: "حفظ",
+        waBtn: "نسخ ملخص واتساب",
+        printBtn: "طباعة / PDF",
+        docTitle: "عرض ثمن (DEVIS)",
+        num: "الرقم :",
+        date: "التاريخ :",
+        today: "اليوم",
+        validity: "الصلاحية :",
+        clientCard: "الزبون / الشركة",
+        projectCard: "موضوع الأشغال والورش",
+        thDesc: "بيان الأشغال والخدمات",
+        thUnit: "الوحدة",
+        thQty: "الكمية",
+        thPrice: "ثمن الوحدة HT (د.م)",
+        thTotal: "المجموع HT",
+        addRow: "+ إضافة سطر",
+        amountLetters: "حُصر هذا العرض في مبلغ :",
+        totalHT: "المجموع خارج الضريبة (HT)",
+        discount: "تخفيض",
+        netHT: "الصافي التجاري HT",
+        tva: "الضريبة على القيمة المضافة TVA",
+        totalTTC: "المجموع الإجمالي TTC",
+        acompte: "التسبيق عند الطلب",
+        reste: "الباقي للأداء",
+        telPrefix: "الهاتف",
+        emailPrefix: "البريد الإلكتروني",
+        stamp: "ختم وتوقيع HMSTA",
+        clientSign: "موافقة الزبون : ___________________",
+        panelCalc: "إعدادات الحساب",
+        cfgTVA: "نسبة الضريبة TVA",
+        optTva20: "20% (القياسية)",
+        optTva10: "10% (أشغال / خاصة)",
+        optTva0: "0% (معفى)",
+        cfgDiscount: "نسبة التخفيض (%)",
+        cfgAcompte: "التسبيق عند الطلب (%)",
+        cfgValidity: "مدة الصلاحية (أيام)",
+        optVal15: "15 يوما",
+        optVal30: "30 يوما",
+        optVal45: "45 يوما",
+        panelCompany: "معلومات الشركة (HMSTA)",
+        cfgAddr: "العنوان (أكادير)",
+        cfgPhone: "رقم الهاتف",
+        cfgEmail: "البريد الإلكتروني",
+        cfgIce: "التعريف الموحد للمقاولة (ICE)",
+        cfgExtra: "السجل التجاري / IF / الباتيندا",
+        panelHistory: "السجل المحفوظ",
+        emptyHistory: "لا توجد عروض محفوظة.",
+        openBtn: "فتح",
+        savedAlert: "تم حفظ عرض الثمن في السجل المحلي.",
+        waCopied: "تم نسخ الملخص لإرساله عبر واتساب!",
+        defaultAddr: "حي المحمدي، أكادير، المغرب",
+        defaultClient: "زبون خاص / شركة",
+        defaultClientAddr: "شارع الحسن الثاني، تالبورجت، أكادير",
+        defaultClientPhone: "الهاتف : 06 XX XX XX XX",
+        defaultProject: "إصلاح وتشطيب — حي فونتي، أكادير",
+        defaultNotes: "أشغال الإصلاح والتشطيب الكاملة وفق الوصف أسفله.",
+        newLineDesc: "بند جديد لأشغال الإصلاح والتشطيب",
+        defaultUnit: "جزافي",
+        presets: [
+          { label: "+ الهدم وإزالة الأنقاض", desc: "أشغال الهدم وإزالة مخلفات البناء", unit: "جزافي", qty: 1, price: 2500 },
+          { label: "+ السقف المستعار BA13", desc: "سقف مستعار BA13 عادي / مقاوم للرطوبة", unit: "م²", qty: 1, price: 160 },
+          { label: "+ الزليج والفايونس", desc: "تركيب زليج الأرضيات وفايونس الجدران (مواد + يد عاملة)", unit: "م²", qty: 1, price: 220 },
+          { label: "+ الصباغة الداخلية", desc: "صباغة داخلية ساتيني / فينيل (طبقتان + أندوي)", unit: "م²", qty: 1, price: 65 },
+          { label: "+ الترصيص الصحي", desc: "أشغال الترصيص الصحي والتزويد بالماء", unit: "جزافي", qty: 1, price: 4500 },
+          { label: "+ الكهرباء والإضاءة", desc: "التركيب الكهربائي وإنارة LED", unit: "جزافي", qty: 1, price: 4000 },
+          { label: "+ العزل المائي (Étanchéité)", desc: "أشغال العزل المائي للسطح / الحمام", unit: "م²", qty: 1, price: 140 },
+          { label: "+ النجارة والألمنيوم", desc: "أشغال النجارة الخشبية أو الألمنيوم", unit: "جزافي", qty: 1, price: 5500 }
+        ],
+        sampleItems: [
+          { desc: "صباغة داخلية ساتيني (طبقتان + تحضير الجدران)", unit: "م²", qty: 80, price: 65 },
+          { desc: "تركيب زليج الأرضيات من نوع غري سيريرام", unit: "م²", qty: 45, price: 210 }
+        ]
+      }
+    };
+
+    let items = JSON.parse(JSON.stringify(I18N.fr.sampleItems));
+
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem(STORAGE_KEY_LANG, lang);
+      const t = I18N[lang];
+      document.documentElement.lang = lang;
+      document.body.classList.toggle("rtl", lang === "ar");
+      document.getElementById("btnLangFr").classList.toggle("active", lang === "fr");
+      document.getElementById("btnLangAr").classList.toggle("active", lang === "ar");
+
+      document.getElementById("topBrandTitle").textContent = t.brandTitle;
+      document.getElementById("topBrandSub").textContent = t.brandSub;
+      document.getElementById("sheetCompanyName").textContent = t.companyName;
+      document.getElementById("footerCompany").textContent = t.footerCompany;
+
+      document.getElementById("btnNew").textContent = t.newBtn;
+      document.getElementById("btnSave").textContent = t.saveBtn;
+      document.getElementById("btnWhatsApp").textContent = t.waBtn;
+      document.getElementById("btnPrint").textContent = t.printBtn;
+
+      document.getElementById("docTitle").textContent = t.docTitle;
+      document.getElementById("lblNum").textContent = t.num;
+      document.getElementById("lblDate").textContent = t.date;
+      document.getElementById("btnToday").textContent = t.today;
+      document.getElementById("lblValidity").textContent = t.validity;
+
+      document.getElementById("lblClientCard").textContent = t.clientCard;
+      document.getElementById("lblProjectCard").textContent = t.projectCard;
+
+      document.getElementById("thDesc").textContent = t.thDesc;
+      document.getElementById("thUnit").textContent = t.thUnit;
+      document.getElementById("thQty").textContent = t.thQty;
+      document.getElementById("thPrice").textContent = t.thPrice;
+      document.getElementById("thTotal").textContent = t.thTotal;
+      document.getElementById("btnAddRow").textContent = t.addRow;
+
+      document.getElementById("lblAmountLetters").textContent = t.amountLetters;
+      document.getElementById("lblTotalHT").textContent = t.totalHT;
+      document.getElementById("lblDiscount").textContent = t.discount;
+      document.getElementById("lblNetHT").textContent = t.netHT;
+      document.getElementById("lblTVA").textContent = t.tva;
+      document.getElementById("lblTotalTTC").textContent = t.totalTTC;
+      document.getElementById("lblAcompte").textContent = t.acompte;
+      document.getElementById("lblReste").textContent = t.reste;
+
+      document.getElementById("lblTelPrefix").textContent = t.telPrefix;
+      document.getElementById("lblEmailPrefix").textContent = t.emailPrefix;
+      document.getElementById("lblFooterTel").textContent = t.telPrefix;
+      document.getElementById("lblFooterEmail").textContent = t.emailPrefix;
+      document.getElementById("lblStamp").textContent = t.stamp;
+      document.getElementById("lblClientSign").textContent = t.clientSign;
+
+      document.getElementById("panelCalcTitle").textContent = t.panelCalc;
+      document.getElementById("lblCfgTVA").textContent = t.cfgTVA;
+      document.getElementById("optTva20").textContent = t.optTva20;
+      document.getElementById("optTva10").textContent = t.optTva10;
+      document.getElementById("optTva0").textContent = t.optTva0;
+      document.getElementById("lblCfgDiscount").textContent = t.cfgDiscount;
+      document.getElementById("lblCfgAcompte").textContent = t.cfgAcompte;
+      document.getElementById("lblCfgValidity").textContent = t.cfgValidity;
+      document.getElementById("optVal15").textContent = t.optVal15;
+      document.getElementById("optVal30").textContent = t.optVal30;
+      document.getElementById("optVal45").textContent = t.optVal45;
+
+      document.getElementById("panelCompanyTitle").textContent = t.panelCompany;
+      document.getElementById("lblCfgAddr").textContent = t.cfgAddr;
+      document.getElementById("lblCfgPhone").textContent = t.cfgPhone;
+      document.getElementById("lblCfgEmail").textContent = t.cfgEmail;
+      document.getElementById("lblCfgIce").textContent = t.cfgIce;
+      document.getElementById("lblCfgExtra").textContent = t.cfgExtra;
+      document.getElementById("panelHistoryTitle").textContent = t.panelHistory;
+
+      renderPresets();
+      renderItems();
+      renderHistory();
+      recalc();
+    }
+
+    function renderPresets() {
+      const bar = document.getElementById("catalogBar");
+      bar.innerHTML = "";
+      I18N[currentLang].presets.forEach(p => {
+        const btn = document.createElement("button");
+        btn.className = "catalog-btn";
+        btn.textContent = p.label;
+        btn.onclick = () => addPreset(p.desc, p.unit, p.qty, p.price);
+        bar.appendChild(btn);
+      });
+    }
+
+    function formatDH(val) {
+      const numStr = Number(val || 0).toLocaleString("fr-MA", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+      return currentLang === "ar" ? `${numStr} د.م` : `${numStr} DH`;
+    }
+
+    function todayISO() {
+      const now = new Date();
+      const y = now.getFullYear();
+      const m = String(now.getMonth() + 1).padStart(2, "0");
+      const d = String(now.getDate()).padStart(2, "0");
+      return `${y}-${m}-${d}`;
+    }
+
+    function setToday() {
+      const t = todayISO();
+      document.getElementById("devisDate").value = t;
+      const year = t.slice(0, 4);
+      const numEl = document.getElementById("devisNumber");
+      if (/^DEV-\d{4}-/.test(numEl.value)) {
+        numEl.value = numEl.value.replace(/^DEV-\d{4}-/, `DEV-${year}-`);
+      }
+      recalcValidity();
+    }
+
+    function recalcValidity() {
+      const startStr = document.getElementById("devisDate").value || todayISO();
+      const days = parseInt(document.getElementById("validityDays").value || "15", 10);
+      const [y, m, d] = startStr.split("-").map(Number);
+      const dt = new Date(y, m - 1, d);
+      dt.setDate(dt.getDate() + days);
+      const vy = dt.getFullYear();
+      const vm = String(dt.getMonth() + 1).padStart(2, "0");
+      const vd = String(dt.getDate()).padStart(2, "0");
+      document.getElementById("devisValidity").value = `${vy}-${vm}-${vd}`;
+    }
+
+    function renderItems() {
+      const tbody = document.getElementById("itemsBody");
+      tbody.innerHTML = "";
+      items.forEach((it, idx) => {
+        const lineTotal = (Number(it.qty) || 0) * (Number(it.price) || 0);
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td><input type="text" value="${escapeAttr(it.desc)}" oninput="updateItem(${idx}, 'desc', this.value)" /></td>
+          <td><input type="text" value="${escapeAttr(it.unit)}" oninput="updateItem(${idx}, 'unit', this.value)" /></td>
+          <td class="num"><input type="number" min="0" step="any" value="${it.qty}" oninput="updateItem(${idx}, 'qty', this.value)" /></td>
+          <td class="num"><input type="number" min="0" step="any" value="${it.price}" oninput="updateItem(${idx}, 'price', this.value)" /></td>
+          <td class="num"><strong>${formatDH(lineTotal)}</strong></td>
+          <td class="no-print"><button class="del-btn" onclick="removeItem(${idx})">✕</button></td>
+        `;
+        tbody.appendChild(tr);
+      });
+      recalc();
+    }
+
+    function escapeAttr(str) {
+      return String(str || "").replace(/"/g, "&quot;");
+    }
+
+    function addItem() {
+      const t = I18N[currentLang];
+      items.push({ desc: t.newLineDesc, unit: t.defaultUnit, qty: 1, price: 0 });
+      renderItems();
+    }
+
+    function addPreset(desc, unit, qty, price) {
+      items.push({ desc, unit, qty, price });
+      renderItems();
+    }
+
+    function updateItem(idx, key, val) {
+      if (key === "qty" || key === "price") {
+        items[idx][key] = parseFloat(val) || 0;
+      } else {
+        items[idx][key] = val;
+      }
+      renderItems();
+    }
+
+    function removeItem(idx) {
+      items.splice(idx, 1);
+      renderItems();
+    }
+
+    function numberToFrench(num) {
+      num = Math.floor(Math.abs(num));
+      if (num === 0) return "zéro";
+      const units = ["", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf",
+        "dix", "onze", "douze", "treize", "quatorze", "quinze", "seize", "dix-sept", "dix-huit", "dix-neuf"];
+      const tens = ["", "", "vingt", "trente", "quarante", "cinquante", "soixante", "soixante", "quatre-vingt", "quatre-vingt"];
+
+      function belowHundred(n) {
+        if (n < 20) return units[n];
+        const t = Math.floor(n / 10);
+        const u = n % 10;
+        if (t === 7 || t === 9) {
+          const base = tens[t];
+          const rem = 10 + u;
+          const sep = (t === 7 && u === 1) ? " et " : "-";
+          return base + sep + units[rem];
+        }
+        let s = tens[t];
+        if (u === 1 && t !== 8) s += " et un";
+        else if (u > 0) s += "-" + units[u];
+        else if (t === 8) s += "s";
+        return s;
+      }
+
+      function belowThousand(n) {
+        if (n < 100) return belowHundred(n);
+        const c = Math.floor(n / 100);
+        const r = n % 100;
+        let prefix = c === 1 ? "cent" : units[c] + " cent";
+        if (c > 1 && r === 0) prefix += "s";
+        return r ? prefix + " " + belowHundred(r) : prefix;
+      }
+
+      let parts = [];
+      if (num >= 1000000) {
+        const m = Math.floor(num / 1000000);
+        parts.push(m === 1 ? "un million" : belowThousand(m) + " millions");
+        num %= 1000000;
+      }
+      if (num >= 1000) {
+        const k = Math.floor(num / 1000);
+        parts.push(k === 1 ? "mille" : belowThousand(k) + " mille");
+        num %= 1000;
+      }
+      if (num > 0) {
+        parts.push(belowThousand(num));
+      }
+      return parts.join(" ");
+    }
+
+    function numberToArabic(num) {
+      num = Math.floor(Math.abs(num));
+      if (num === 0) return "صفر";
+      const ones = ["", "واحد", "اثنان", "ثلاثة", "أربعة", "خمسة", "ستة", "سبعة", "ثمانية", "تسعة"];
+      const tens = ["", "عشرة", "عشرون", "ثلاثون", "أربعون", "خمسون", "ستون", "سبعون", "ثمانون", "تسعون"];
+      const teens = ["عشرة", "أحد عشر", "اثنا عشر", "ثلاثة عشر", "أربعة عشر", "خمسة عشر", "ستة عشر", "سبعة عشر", "ثمانية عشر", "تسعة عشر"];
+      const hundreds = ["", "مائة", "مائتان", "ثلاثمائة", "أربعمائة", "خمسمائة", "ستمائة", "سبعمائة", "ثمانمائة", "تسعمائة"];
+
+      function belowHundred(n) {
+        if (n < 10) return ones[n];
+        if (n < 20) return teens[n - 10];
+        const u = n % 10;
+        const t = Math.floor(n / 10);
+        if (u === 0) return tens[t];
+        return ones[u] + " و" + tens[t];
+      }
+
+      function belowThousand(n) {
+        if (n < 100) return belowHundred(n);
+        const h = Math.floor(n / 100);
+        const r = n % 100;
+        if (r === 0) return hundreds[h];
+        return hundreds[h] + " و" + belowHundred(r);
+      }
+
+      let parts = [];
+      if (num >= 1000000) {
+        const m = Math.floor(num / 1000000);
+        if (m === 1) parts.push("مليون");
+        else if (m === 2) parts.push("مليونان");
+        else parts.push(belowThousand(m) + " ملايين");
+        num %= 1000000;
+      }
+      if (num >= 1000) {
+        const k = Math.floor(num / 1000);
+        if (k === 1) parts.push("ألف");
+        else if (k === 2) parts.push("ألفان");
+        else parts.push(belowThousand(k) + " آلاف");
+        num %= 1000;
+      }
+      if (num > 0) {
+        parts.push(belowThousand(num));
+      }
+      return parts.join(" و");
+    }
+
+    function amountWordsDH(totalTTC) {
+      const rounded = Math.round((Number(totalTTC) || 0) * 100) / 100;
+      const dh = Math.floor(rounded);
+      const centimes = Math.round((rounded - dh) * 100);
+
+      if (currentLang === "ar") {
+        let txt = numberToArabic(dh) + (dh === 1 ? " درهم" : " دراهم");
+        if (centimes > 0) {
+          txt += " و" + numberToArabic(centimes) + (centimes === 1 ? " سنتيم" : " سنتيما");
+        }
+        return txt;
+      }
+
+      let txt = numberToFrench(dh) + (dh > 1 ? " Dirhams" : " Dirham");
+      if (centimes > 0) {
+        txt += " et " + numberToFrench(centimes) + (centimes > 1 ? " centimes" : " centime");
+      }
+      return txt.charAt(0).toUpperCase() + txt.slice(1);
+    }
+
+    function recalc() {
+      const totalHT = items.reduce((acc, it) => acc + (Number(it.qty) || 0) * (Number(it.price) || 0), 0);
+      const discRate = parseFloat(document.getElementById("discountRate").value) || 0;
+      const tvaRate = parseFloat(document.getElementById("tvaRate").value) || 0;
+      const acompteRate = parseFloat(document.getElementById("acompteRate").value) || 0;
+
+      const discountAmount = totalHT * (discRate / 100);
+      const netHT = Math.max(0, totalHT - discountAmount);
+      const tvaAmount = netHT * (tvaRate / 100);
+      const totalTTC = netHT + tvaAmount;
+      const acompteAmount = totalTTC * (acompteRate / 100);
+      const resteAmount = Math.max(0, totalTTC - acompteAmount);
+
+      document.getElementById("totalHT").textContent = formatDH(totalHT);
+      document.getElementById("discountLabel").textContent = discRate + "%";
+      document.getElementById("discountAmount").textContent = "-" + formatDH(discountAmount);
+      document.getElementById("netHT").textContent = formatDH(netHT);
+      document.getElementById("tvaLabel").textContent = tvaRate + "%";
+      document.getElementById("tvaAmount").textContent = formatDH(tvaAmount);
+      document.getElementById("totalTTC").textContent = formatDH(totalTTC);
+      document.getElementById("acompteLabel").textContent = acompteRate + "%";
+      document.getElementById("acompteAmount").textContent = formatDH(acompteAmount);
+      document.getElementById("resteAmount").textContent = formatDH(resteAmount);
+      document.getElementById("amountInLetters").textContent = amountWordsDH(totalTTC);
+    }
+
+    function applyCompanyCfg() {
+      const addr = document.getElementById("cfgAddress").value || I18N[currentLang].defaultAddr;
+      const phone = document.getElementById("cfgPhone").value || "06 61 79 42 65";
+      const email = document.getElementById("cfgEmail").value || "zouhairhmsta@gmail.com";
+      const ice = document.getElementById("cfgIce").value.trim();
+      const extra = document.getElementById("cfgLegalExtra").value.trim();
+
+      document.getElementById("companyAddress").textContent = addr;
+      document.getElementById("companyPhone").textContent = phone;
+      document.getElementById("companyEmail").textContent = email;
+      document.getElementById("footerPhone").textContent = phone;
+      document.getElementById("footerEmail").textContent = email;
+
+      const legalParts = [];
+      legalParts.push("ICE : " + (ice || "—"));
+      if (extra) legalParts.push(extra);
+      document.getElementById("companyLegal").textContent = legalParts.join(" • ");
+
+      localStorage.setItem(STORAGE_KEY_CFG, JSON.stringify({
+        addr, phone, email, ice, extra
+      }));
+    }
+
+    function loadCompanyCfg() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY_CFG);
+        if (!raw) return;
+        const c = JSON.parse(raw);
+        if (c.addr) document.getElementById("cfgAddress").value = c.addr;
+        if (c.phone) document.getElementById("cfgPhone").value = c.phone;
+        if (c.email) document.getElementById("cfgEmail").value = c.email;
+        if (c.ice !== undefined) document.getElementById("cfgIce").value = c.ice;
+        if (c.extra !== undefined) document.getElementById("cfgLegalExtra").value = c.extra;
+        applyCompanyCfg();
+      } catch (e) {}
+    }
+
+    function saveDevis() {
+      const record = {
+        id: Date.now(),
+        number: document.getElementById("devisNumber").value,
+        date: document.getElementById("devisDate").value,
+        validity: document.getElementById("devisValidity").value,
+        clientName: document.getElementById("clientName").value,
+        clientAddress: document.getElementById("clientAddress").value,
+        clientPhone: document.getElementById("clientPhone").value,
+        projectTitle: document.getElementById("projectTitle").value,
+        projectNotes: document.getElementById("projectNotes").value,
+        tvaRate: document.getElementById("tvaRate").value,
+        discountRate: document.getElementById("discountRate").value,
+        acompteRate: document.getElementById("acompteRate").value,
+        items: JSON.parse(JSON.stringify(items)),
+        totalTTC: document.getElementById("totalTTC").textContent
+      };
+      const hist = getHistory();
+      hist.unshift(record);
+      localStorage.setItem(STORAGE_KEY_HIST, JSON.stringify(hist.slice(0, 30)));
+      renderHistory();
+      alert(I18N[currentLang].savedAlert);
+    }
+
+    function getHistory() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY_HIST) || "[]");
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function renderHistory() {
+      const t = I18N[currentLang];
+      const list = document.getElementById("historyList");
+      const hist = getHistory();
+      if (!hist.length) {
+        list.innerHTML = `<div style="color:#a1a1aa; font-size:0.78rem;">${t.emptyHistory}</div>`;
+        return;
+      }
+      list.innerHTML = "";
+      hist.forEach((rec, i) => {
+        const div = document.createElement("div");
+        div.className = "history-item";
+        div.innerHTML = `
+          <div>
+            <strong>${rec.number}</strong> — ${rec.clientName}<br/>
+            <span style="color:#a1a1aa;">${rec.date} • ${rec.totalTTC}</span>
+          </div>
+          <button onclick="loadRecord(${i})">${t.openBtn}</button>
+        `;
+        list.appendChild(div);
+      });
+    }
+
+    function loadRecord(i) {
+      const rec = getHistory()[i];
+      if (!rec) return;
+      document.getElementById("devisNumber").value = rec.number || "DEV-2026-001";
+      document.getElementById("devisDate").value = rec.date || todayISO();
+      document.getElementById("devisValidity").value = rec.validity || todayISO();
+      document.getElementById("clientName").value = rec.clientName || "";
+      document.getElementById("clientAddress").value = rec.clientAddress || "";
+      document.getElementById("clientPhone").value = rec.clientPhone || "";
+      document.getElementById("projectTitle").value = rec.projectTitle || "";
+      document.getElementById("projectNotes").value = rec.projectNotes || "";
+      document.getElementById("tvaRate").value = rec.tvaRate || "20";
+      document.getElementById("discountRate").value = rec.discountRate || "0";
+      document.getElementById("acompteRate").value = rec.acompteRate || "40";
+      items = Array.isArray(rec.items) ? rec.items : [];
+      renderItems();
+    }
+
+    function newDevis() {
+      const t = I18N[currentLang];
+      setToday();
+      const histCount = getHistory().length + 1;
+      const year = todayISO().slice(0, 4);
+      document.getElementById("devisNumber").value = `DEV-${year}-${String(histCount).padStart(3, "0")}`;
+      document.getElementById("clientName").value = t.defaultClient;
+      document.getElementById("clientAddress").value = t.defaultClientAddr;
+      document.getElementById("clientPhone").value = t.defaultClientPhone;
+      document.getElementById("projectTitle").value = t.defaultProject;
+      document.getElementById("projectNotes").value = t.defaultNotes;
+      items = [{ desc: t.newLineDesc, unit: t.defaultUnit, qty: 1, price: 0 }];
+      renderItems();
+    }
+
+    function copyWhatsApp() {
+      const num = document.getElementById("devisNumber").value;
+      const client = document.getElementById("clientName").value;
+      const proj = document.getElementById("projectTitle").value;
+      const ttc = document.getElementById("totalTTC").textContent;
+      const acompte = document.getElementById("acompteAmount").textContent;
+      const phone = document.getElementById("cfgPhone").value;
+      const email = document.getElementById("cfgEmail").value;
+
+      const msg = currentLang === "ar"
+        ? `*HMSTA للإصلاح والتشطيب (أكادير)*
+` +
+          `عرض ثمن رقم : *${num}*
+` +
+          `الزبون : ${client}
+` +
+          `الورش : ${proj}
+` +
+          `المجموع الإجمالي TTC : *${ttc}*
+` +
+          `التسبيق : ${acompte}
+` +
+          `التواصل : ${phone} | ${email}`
+        : `*HMSTA Rénovation & Finition (Agadir)*
+` +
+          `Devis N° : *${num}*
+` +
+          `Client : ${client}
+` +
+          `Chantier : ${proj}
+` +
+          `Total TTC : *${ttc}*
+` +
+          `Acompte : ${acompte}
+` +
+          `Contact : ${phone} | ${email}`;
+
+      navigator.clipboard.writeText(msg).then(() => {
+        alert(I18N[currentLang].waCopied);
+      }).catch(() => {
+        prompt("Copiez / انسخ :", msg);
+      });
+    }
+
+    const savedLang = localStorage.getItem(STORAGE_KEY_LANG);
+    setToday();
+    loadCompanyCfg();
+    setLang(savedLang === "ar" ? "ar" : "fr");
+  </script>
+</body>
+</html>
